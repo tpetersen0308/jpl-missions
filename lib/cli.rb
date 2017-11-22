@@ -74,7 +74,11 @@ class CLI
     puts "About: #{mission.description}"
     puts "Would you like to learn more?"
     input = gets.chomp
-    display_further_details(mission) if input == /y|Y/
+    if input == /y|Y/
+      Scraper.scrape_mission_from_user_selection(user_selection)
+      mission.add_details_from_hash(details_hash)
+      display_further_details(mission)
+    end
   end
 
   def display_further_details(mission)
