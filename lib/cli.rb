@@ -50,11 +50,13 @@ class CLI
     Mission.all.each.with_index do |mission, index|
       puts "#{index + 1}: #{mission.title}"
     end
-    puts "To learn more, select a mission."
   end
 
   def list_nav
-    puts "To return to the main menu, enter 'exit.'"
+    puts ""
+    puts ">> To learn more, select a mission."
+    puts ">> To return to the main menu, enter 'exit.'"
+    puts ""
     input = gets.chomp
     if input.between?('1', Mission.all.size.to_s)
       display_mission_details(input)
