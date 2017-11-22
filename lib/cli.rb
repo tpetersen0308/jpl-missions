@@ -58,5 +58,8 @@ class CLI
     end
   end
 
+  def list_nav
+  end
+
 
 end
