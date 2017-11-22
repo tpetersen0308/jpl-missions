@@ -7,7 +7,6 @@ class Scraper
       new_mission[:title] = mission.css(".content_title").text.strip
       new_mission[:launch_date] = mission.css(".article_teaser_body").first.text
       new_mission[:description] = mission.css(".article_teaser_body").last.text.strip
-      new_mission[:acronym] = mission.css("div.bottom_gradient div h3").text
       missions << new_mission
     end
 
