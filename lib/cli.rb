@@ -33,24 +33,27 @@ class CLI
     case option
     when '1'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
-      puts "To learn more, select a mission."
-      puts "To return to the main menu, enter 'exit.'"
-      input = gets.chomp
-      if input.between?('1', Mission.all.size.to_s)
-        puts "More information about selected mission..."
-      elsif input == "exit"
-        main_menu
-      else puts "Please select from the available options"
-      end
+      list_nav
+      #puts "To learn more, select a mission."
+      #puts "To return to the main menu, enter 'exit.'"
+      #input = gets.chomp
+      #if input.between?('1', Mission.all.size.to_s)
+      #  puts "More information about selected mission..."
+      #elsif input == "exit"
+      #  main_menu
+      #else puts "Please select from the available options"
+      #end
     when '2'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
+      list_nav
     when '3'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
-      end
+      list_nav
     end
   end
 
   def list_missions_from_url(url)
+    Mission.clear_all
     missions_array = Scraper.scrape_missions_from_url(url)
     Mission.create_missions_from_array(missions_array)
     Mission.all.each.with_index do |mission, index|
@@ -59,6 +62,17 @@ class CLI
   end
 
   def list_nav
+    puts "To learn more, select a mission."
+    puts "To return to the main menu, enter 'exit.'"
+    input = gets.chomp
+    if input.between?('1', Mission.all.size.to_s)
+      puts "More information about selected mission..."
+      list_nav
+    elsif input == "exit"
+      main_menu
+    else puts "Please select from the available options"
+      list_nav
+    end
   end
 
 
