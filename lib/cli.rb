@@ -34,15 +34,6 @@ class CLI
     when '1'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
       list_nav
-      #puts "To learn more, select a mission."
-      #puts "To return to the main menu, enter 'exit.'"
-      #input = gets.chomp
-      #if input.between?('1', Mission.all.size.to_s)
-      #  puts "More information about selected mission..."
-      #elsif input == "exit"
-      #  main_menu
-      #else puts "Please select from the available options"
-      #end
     when '2'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
       list_nav
@@ -59,10 +50,10 @@ class CLI
     Mission.all.each.with_index do |mission, index|
       puts "#{index + 1}: #{mission.title}"
     end
+    puts "To learn more, select a mission."
   end
 
   def list_nav
-    puts "To learn more, select a mission."
     puts "To return to the main menu, enter 'exit.'"
     input = gets.chomp
     if input.between?('1', Mission.all.size.to_s)
@@ -81,6 +72,5 @@ class CLI
     puts "#{mission.launch_date}"
     puts "About: #{mission.description}"
   end
-
 
 end
