@@ -7,7 +7,7 @@ class Mission
     save
   end
 
-  def create_missions_from_array(array)
+  def self.create_missions_from_array(array)
     array.each do |mission_hash|
       new_mission = self.new(mission_hash[:title])
       new_mission.launch_date = mission_hash[:launch_date]
@@ -17,6 +17,10 @@ class Mission
 
   def save
     @@all << self
+  end
+
+  def self.all
+    @@all
   end
 
 end
