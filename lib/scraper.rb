@@ -14,7 +14,7 @@ class Scraper
     missions
   end
 
-  def self.scrape_mission_from_user_selection(option)
+  def self.scrape_mission_details_from_user_selection(option)
     mission = Mission.all[option]
     mission_details = {}
     slug = mission.title.downcase.gsub(' ','-') + mission.acronym
