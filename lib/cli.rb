@@ -66,13 +66,20 @@ class CLI
     puts "To return to the main menu, enter 'exit.'"
     input = gets.chomp
     if input.between?('1', Mission.all.size.to_s)
-      puts "More information about selected mission..."
+      display_mission_details(input)
       list_nav
     elsif input == "exit"
       main_menu
     else puts "Please select from the available options"
       list_nav
     end
+  end
+
+  def display_mission_details(input)
+    mission = Mission.all[input.to_i - 1]
+    puts "Mission Title: #{mission.title}"
+    puts "#{mission.launch_date}"
+    puts "About: #{mission.description}"
   end
 
 

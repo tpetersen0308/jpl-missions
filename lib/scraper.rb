@@ -6,7 +6,7 @@ class Scraper
       new_mission = {}
       new_mission[:title] = mission.css(".content_title").text.strip
       new_mission[:launch_date] = mission.css(".article_teaser_body").first.text
-      new_mission[:description] = mission.css(".article_teaser_body").last.text
+      new_mission[:description] = mission.css(".article_teaser_body").last.text.strip
       missions << new_mission
     end
 
