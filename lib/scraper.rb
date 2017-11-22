@@ -14,11 +14,10 @@ class Scraper
   end
 
   def self.scrape_mission_from_user_selection(option)
-    mission = Mission.all[option.to_i - 1]
+    mission = {}
     slug = mission.title.downcase.gsub(' ','-')
-    Nokogiri::HTML(open("https://www.jpl.nasa.gov/missions/#{slug}"))
-      mission.details = {}
-
+    doc = Nokogiri::HTML(open("https://www.jpl.nasa.gov/missions/#{slug}")).css('article')
+    mission[:about_the_mission] = doc.css("div.wysiwyg_content p").first.text
   end
 
 end
