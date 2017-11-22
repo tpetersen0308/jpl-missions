@@ -67,10 +67,17 @@ class CLI
   end
 
   def display_mission_details(input)
-    mission = Mission.all[input.to_i - 1]
+    user_selection = input.to_i - 1
+    mission = Mission.all[user_selection]
     puts "Mission Title: #{mission.title}"
     puts "#{mission.launch_date}"
     puts "About: #{mission.description}"
+    puts "Would you like to learn more?"
+    input = gets.chomp
+    display_further_details(mission) if input == /y|Y/
+  end
+
+  def display_further_details(mission)
   end
 
 end
