@@ -15,6 +15,10 @@ class Mission
     end
   end
 
+  def add_details_from_hash(details_hash)
+    self.details = details_hash
+  end
+
   def save
     @@all << self
   end
