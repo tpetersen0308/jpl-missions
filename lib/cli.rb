@@ -3,6 +3,8 @@ class CLI
   def call
     puts "Welcome to NASA JPL Missions!"
     self.main_menu
+    puts "For more information on NASA JPL and their missions,"
+    puts "visit https://www.jpl.nasa.gov"
   end
 
   def main_menu
@@ -19,7 +21,7 @@ class CLI
       #print list of selected Missions
       self.list_missions(input)
     when 'exit'
-      puts "Goobye!"
+      puts "Goodbye!"
     else
       puts "I'm sorry, that's not an option."
       puts "Please choose from the available options."
@@ -34,9 +36,13 @@ class CLI
       Mission.create_missions_from_array(missions_array)
       puts Mission.all
     when '2'
-      puts 'Cassini'
+      missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
+      Mission.create_missions_from_array(missions_array)
+      puts Mission.all
     when '3'
-      puts "Europa"
+      missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
+      Mission.create_missions_from_array(missions_array)
+      puts Mission.all
     end
   end
 
