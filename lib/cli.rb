@@ -32,11 +32,7 @@ class CLI
   def list_missions(option)
     case option
     when '1'
-      missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
-      Mission.create_missions_from_array(missions_array)
-      Mission.all.each.with_index do |mission, index|
-        puts "#{index + 1}: #{mission.title}"
-      end
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
       puts "To learn more, select a mission."
       puts "To return to the main menu, enter 'exit.'"
       input = gets.chomp
@@ -47,18 +43,20 @@ class CLI
       else puts "Please select from the available options"
       end
     when '2'
-      missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
-      Mission.create_missions_from_array(missions_array)
-      Mission.all.each.with_index do |mission, index|
-        puts "#{index + 1}: #{mission.title}"
-      end
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
     when '3'
-      missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
-      Mission.create_missions_from_array(missions_array)
-      Mission.all.each.with_index do |mission, index|
-        puts "#{index + 1}: #{mission.title}"
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
       end
     end
   end
+
+  def list_missions_from_url(url)
+    missions_array = Scraper.scrape_missions_from_url(url)
+    Mission.create_missions_from_array(missions_array)
+    Mission.all.each.with_index do |mission, index|
+      puts "#{index + 1}: #{mission.title}"
+    end
+  end
+
 
 end
