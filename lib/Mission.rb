@@ -1,5 +1,5 @@
 class Mission
-  attr_accessor :title, :launch_date, :description, :details
+  attr_accessor :title, :acronym, :launch_date, :description, :details
   @@all = []
 
   def initialize(title)
@@ -12,6 +12,7 @@ class Mission
       new_mission = self.new(mission_hash[:title])
       new_mission.launch_date = mission_hash[:launch_date]
       new_mission.description = mission_hash[:description]
+      new_mission.acronym = mission_hash[:acronym] if mission_hash[:acronym]
     end
   end
 
