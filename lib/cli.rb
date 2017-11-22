@@ -15,21 +15,26 @@ class CLI
     DOC
     input = gets.chomp
     case input
-    when '1'
-      #print list of current Missions
-      puts "You've selected Current Missions."
-    when '2'
-      #print list of past Missions
-      puts "You've selected Past Missions."
-    when '3'
-      #print list of future Missions
-      puts "You've selected Future Missions."
+    when /1|2|3/
+      #print list of selected Missions
+      self.list_missions(input)
     when 'exit'
       puts "Goobye!"
     else
       puts "I'm sorry, that's not an option."
       puts "Please choose from the available options."
       self.main_menu
+    end
+  end
+
+  def list_missions(option)
+    case option
+    when '1'
+      puts "Juno"
+    when '2'
+      puts 'Cassini'
+    when '3'
+      puts "Europa"
     end
   end
 
