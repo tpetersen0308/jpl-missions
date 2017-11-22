@@ -1,6 +1,6 @@
 class Scraper
 
-  def scrape_missions_from_url(url)
+  def self.scrape_missions_from_url(url)
     missions = []
     Nokogiri::HTML(open(url)).css("div.list-text-content").each do |mission|
       new_mission = {}

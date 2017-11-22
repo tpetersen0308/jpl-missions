@@ -30,7 +30,9 @@ class CLI
   def list_missions(option)
     case option
     when '1'
-      puts 'Juno'
+      missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
+      Mission.create_missions_from_array(missions_array)
+      puts Mission.all
     when '2'
       puts 'Cassini'
     when '3'
