@@ -30,7 +30,7 @@ class CLI
   def list_missions(option)
     case option
     when '1'
-      puts "Juno"
+      puts 'Juno'
     when '2'
       puts 'Cassini'
     when '3'
