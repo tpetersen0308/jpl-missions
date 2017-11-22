@@ -15,7 +15,7 @@ class Scraper
 
   def self.scrape_mission_from_user_selection(option)
     mission_details = {}
-    slug = Mission[option].title.downcase.gsub(' ','-')
+    slug = Mission.all[option].title.downcase.gsub(' ','-')
     doc = Nokogiri::HTML(open("https://www.jpl.nasa.gov/missions/#{slug}")).css('article')
     mission_details[:about_the_mission] = doc.css("div.wysiwyg_content p").first.text
     mission_details
