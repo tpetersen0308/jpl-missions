@@ -34,15 +34,21 @@ class CLI
     when '1'
       missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
       Mission.create_missions_from_array(missions_array)
-      puts Mission.all
+      Mission.all.each.with_index do |mission, index|
+        puts "#{index + 1}: #{mission.title}"
+      end
     when '2'
       missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
       Mission.create_missions_from_array(missions_array)
-      puts Mission.all
+      Mission.all.each.with_index do |mission, index|
+        puts "#{index + 1}: #{mission.title}"
+      end
     when '3'
       missions_array = Scraper.scrape_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
       Mission.create_missions_from_array(missions_array)
-      puts Mission.all
+      Mission.all.each.with_index do |mission, index|
+        puts "#{index + 1}: #{mission.title}"
+      end
     end
   end
 
