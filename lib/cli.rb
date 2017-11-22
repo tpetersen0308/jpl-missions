@@ -72,16 +72,6 @@ class CLI
     puts "Mission Title: #{mission.title}"
     puts "#{mission.launch_date}"
     puts "About: #{mission.description}"
-    puts "Would you like to learn more?"
-    input = gets.chomp
-    if input == 'y' || input == 'Y'
-      mission.add_details_from_hash(Scraper.scrape_mission_details_from_user_selection(user_selection))
-      binding.pry
-      display_further_details(mission)
-    end
-  end
-
-  def display_further_details(mission)
   end
 
 end
