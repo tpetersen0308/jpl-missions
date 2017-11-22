@@ -8,10 +8,11 @@ class CLI
   def main_menu
     puts (<<-DOC)
     What kind of missions would you like to browse?
-      1. Current Missions 
+      1. Current Missions
       2. Past Missions
       3. Future Missions
       Enter 'exit' to quit
     DOC
+  end
 
 end
