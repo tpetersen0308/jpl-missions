@@ -1,5 +1,5 @@
 class Mission
-  attr_accessor :title, :launch_date, :description
+  attr_accessor :title, :launch_date, :description, :details
   @@all = []
 
   def initialize(title)
