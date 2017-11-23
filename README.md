@@ -23,7 +23,7 @@ Or install it yourself as:
 
 Type the below and follow the on screen prompts
 
-    $ jpl-missions
+    $ jpl_missions
 
 ## Development
 
