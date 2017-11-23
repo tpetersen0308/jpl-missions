@@ -17,4 +17,9 @@ class JPLMissions::Scraper
     missions
   end
 
+  def self.scrape_list_items(url, attr_name)
+    
+  end
+
+
 end
