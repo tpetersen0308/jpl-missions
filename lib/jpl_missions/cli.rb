@@ -13,9 +13,7 @@ class JPLMissions::CLI
       #print list of selected Missions
       self.list_missions(input)
     when 'exit'
-      puts "For more information on NASA JPL and their missions,"
-      puts "visit https://www.jpl.nasa.gov"
-      puts "Goodbye!"
+      exit_cli
     else
       puts "I'm sorry, that's not an option."
       puts "Please choose from the available options."
@@ -31,6 +29,12 @@ class JPLMissions::CLI
       3. Future Missions
       Enter 'exit' to quit
     DOC
+  end
+
+  def exit_cli
+    puts "For more information on NASA JPL and their missions,"
+    puts "visit https://www.jpl.nasa.gov"
+    puts "Goodbye!"
   end
 
   def list_missions(option)
