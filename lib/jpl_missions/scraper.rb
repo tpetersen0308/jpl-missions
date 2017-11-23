@@ -1,4 +1,4 @@
-class Scraper
+class JPLMissions::Scraper
 
   def self.scrape_missions_from_url(url)
     missions = []

@@ -1,4 +1,4 @@
-class Mission
+class JPLMissions::Mission
   attr_accessor :title, :launch_date, :description, :details
   @@all = []
 

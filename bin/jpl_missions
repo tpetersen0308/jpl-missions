@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../config/environment.rb'
+require_relative '../lib/jpl_missions.rb'
 
-CLI.new.call
+JPLMissions::CLI.new.call

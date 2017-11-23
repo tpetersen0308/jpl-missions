@@ -1,4 +1,4 @@
-class CLI
+class JPLMissions::CLI
 
   def call
     puts "Welcome to NASA JPL Missions!"
@@ -44,10 +44,10 @@ class CLI
   end
 
   def list_missions_from_url(url)
-    Mission.clear_all
-    missions_array = Scraper.scrape_missions_from_url(url)
-    Mission.create_missions_from_array(missions_array)
-    Mission.all.each.with_index do |mission, index|
+    JPLMissions::Mission.clear_all
+    missions_array = JPLMissions::Scraper.scrape_missions_from_url(url)
+    JPLMissions::Mission.create_missions_from_array(missions_array)
+    JPLMissions::Mission.all.each.with_index do |mission, index|
       puts "#{index + 1}: #{mission.title}"
     end
   end
@@ -58,7 +58,7 @@ class CLI
     puts ">> To return to the main menu, enter 'exit.'"
     puts ""
     input = gets.chomp
-    if input.between?('1', Mission.all.size.to_s)
+    if input.between?('1', JPLMissions::Mission.all.size.to_s)
       display_mission_details(input)
       list_nav
     elsif input == "exit"
@@ -70,7 +70,7 @@ class CLI
 
   def display_mission_details(input)
     user_selection = input.to_i - 1
-    mission = Mission.all[user_selection]
+    mission = JPLMissions::Mission.all[user_selection]
     puts "Mission Title: #{mission.title}"
     puts "#{mission.launch_date}"
     puts "About: #{mission.description}"
