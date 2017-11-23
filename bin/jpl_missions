@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require 'jpl_missions'
 require_relative '../lib/jpl_missions.rb'
 
 JPLMissions::CLI.new.call
