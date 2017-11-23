@@ -15,8 +15,8 @@ class JPLMissions::Mission
     end
   end
 
-  def add_details_from_hash(details_hash)
-    self.details = details_hash
+  def self.find_from_user_input(input)
+    self.all[input.to_i - 1]
   end
 
   def save

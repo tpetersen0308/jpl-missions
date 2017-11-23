@@ -77,8 +77,7 @@ class JPLMissions::CLI
   end
 
   def display_mission_details(input)
-    user_selection = input.to_i - 1
-    mission = JPLMissions::Mission.all[user_selection]
+    mission = JPLMissions::Mission.find_from_user_input(input)
     puts "Mission Title: #{mission.title}"
     puts "#{mission.launch_date}"
     puts "About: #{mission.description}"
