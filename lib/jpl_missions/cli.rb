@@ -33,15 +33,10 @@ class JPLMissions::CLI
   end
 
   def type_menu
-    puts (<<-DOC)
-    What type of mission would you like to browse?
-      1. Spacecraft
-      2. Rovers/Landers
-      3. Instruments
-      4. Airborne/Ground
-      5. Technology Demonstration
-      Enter 'exit' to return to the main menu
-    DOC
+    targets = JPLMissions::Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 2)
+    targets.each.with_index do |target, index|
+      puts "#{index}. #{target}"
+    end
   end
 
   def target_menu
@@ -52,14 +47,10 @@ class JPLMissions::CLI
   end
 
   def status_menu
-    puts (<<-DOC)
-    What kind of missions would you like to browse?
-      1. Current Missions
-      2. Past Missions
-      3. Future Missions
-      4. Proposed Missions
-      Enter 'exit' to quit
-    DOC
+    targets = JPLMissions::Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 0)
+    targets.each.with_index do |target, index|
+      puts "#{index}. #{target}"
+    end
   end
 
   def exit_cli
