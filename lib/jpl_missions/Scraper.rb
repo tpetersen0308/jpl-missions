@@ -18,7 +18,11 @@ class JPLMissions::Scraper
   end
 
   def self.scrape_list_items(url, attr_name)
-    
+    list_items = []
+    self.get_page(url).css("select").attribute(attr_name).css("option").each do |item|
+      list_items << item.text
+    end
+    list_items
   end
 
 
