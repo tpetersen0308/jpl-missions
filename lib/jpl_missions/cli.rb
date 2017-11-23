@@ -32,6 +32,15 @@ class JPLMissions::CLI
     DOC
   end
 
+  def type_menu
+  end
+
+  def target_menu
+  end
+
+  def status_menu
+  end
+
   def exit_cli
     puts "For more information on NASA JPL and their missions,"
     puts "visit https://www.jpl.nasa.gov"
