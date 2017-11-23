@@ -9,9 +9,9 @@ class JPLMissions::CLI
     main_menu
     input = gets.chomp
     case input
-    when /1|2|3|4/
+    when /1|2|3/
       #print list of selected Missions
-      self.list_missions(input)
+      self.display_menu_choice(input)
     when 'exit'
       exit_cli
     else
@@ -30,17 +30,6 @@ class JPLMissions::CLI
       Enter 'exit' to quit
     DOC
   end
-
-  def display_menu_choice(choice)
-    case choice
-    when '1'
-      Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 'type').each.with_index do |el, index|
-        next if index == 0
-        puts "#{index}. #{el}"
-      end
-    end
-  end
-
 
   def type_menu
     puts (<<-DOC)
