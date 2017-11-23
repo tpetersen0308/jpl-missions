@@ -1,8 +1,12 @@
 class JPLMissions::Scraper
 
+  def self.get_page(url)
+    Nokogiri::HTML(open(url))
+  end
+
   def self.scrape_missions_from_url(url)
     missions = []
-    Nokogiri::HTML(open(url)).css("div.list_text_content").each do |mission|
+    self.get_page(url).css("div.list_text_content").each do |mission|
       new_mission = {}
       new_mission[:title] = mission.css(".content_title").text.strip
       new_mission[:launch_date] = mission.css(".article_teaser_body").first.text
