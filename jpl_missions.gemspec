@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "exe"
   #spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.executables << 'bin/jpl_missions'
+  spec.executables << '/jpl_missions'
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
