@@ -1,8 +1,7 @@
 # JplMissions
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jpl_missions`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby Gem provides a command line interface to browse current, past, and future
+missions of NASA's Jet Propulsion Laboratory in Pasadena, CA.
 
 ## Installation
 
@@ -22,7 +21,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the on screen prompts
+
+    $ jpl-missions
 
 ## Development
 
