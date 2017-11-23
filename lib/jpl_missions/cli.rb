@@ -9,7 +9,7 @@ class JPLMissions::CLI
     main_menu
     input = gets.chomp
     case input
-    when /1|2|3/
+    when /1|2|3|4/
       #print list of selected Missions
       self.list_missions(input)
     when 'exit'
@@ -27,6 +27,7 @@ class JPLMissions::CLI
       1. Current Missions
       2. Past Missions
       3. Future Missions
+      4. Proposed Missions
       Enter 'exit' to quit
     DOC
   end
@@ -47,6 +48,9 @@ class JPLMissions::CLI
       list_nav
     when '3'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
+      list_nav
+    when '4'
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?type=proposed')
       list_nav
     end
   end
