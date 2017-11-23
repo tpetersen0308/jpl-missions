@@ -29,6 +29,7 @@ class JPLMissions::CLI
       3. By Type
       Enter 'exit' to quit
     DOC
+    binding.pry
   end
 
   def type_menu
@@ -44,7 +45,10 @@ class JPLMissions::CLI
   end
 
   def target_menu
-
+    targets = JPLMissions::Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 1)
+    targets.each.with_index do |target, index|
+      puts "#{index}. #{target}"
+    end
   end
 
   def status_menu

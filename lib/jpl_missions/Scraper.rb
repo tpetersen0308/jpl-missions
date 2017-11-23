@@ -17,9 +17,10 @@ class JPLMissions::Scraper
     missions
   end
 
-  def self.scrape_list_items(url, attr_name)
+  def self.scrape_list_items(url, list_index)
+    list_items_page = JPLMissions::Scraper.get_page('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit')
     list_items = []
-    self.get_page(url).css("select").attribute(attr_name).css("option").each do |item|
+    list_items_page.css('form.section_search select')[list_index].css('option').each do |item|
       list_items << item.text
     end
     list_items
