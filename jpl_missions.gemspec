@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   missions of NASA's Jet Propulsion Laboratory in Pasadena, CA.}
   spec.homepage      = "https://github.com/tpetersen0308/jpl-missions"
   spec.license       = "MIT"
-  spec.executables << 'jpl_missions'
+  spec.executables << "jpl_missions"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
