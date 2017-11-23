@@ -3,8 +3,6 @@ class JPLMissions::CLI
   def call
     puts "Welcome to NASA JPL Missions!"
     self.main_menu
-    puts "For more information on NASA JPL and their missions,"
-    puts "visit https://www.jpl.nasa.gov"
   end
 
   def main_menu
@@ -21,6 +19,8 @@ class JPLMissions::CLI
       #print list of selected Missions
       self.list_missions(input)
     when 'exit'
+      puts "For more information on NASA JPL and their missions,"
+      puts "visit https://www.jpl.nasa.gov"
       puts "Goodbye!"
     else
       puts "I'm sorry, that's not an option."
