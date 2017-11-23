@@ -5,7 +5,7 @@ require "jpl_missions/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "jpl_missions"
-  spec.version       = JplMissions::VERSION
+  spec.version       = JPLMissions::VERSION
   spec.authors       = ["'Travis Petersen'"]
   spec.email         = ["'travis.e.petersen@gmail.com'"]
 
