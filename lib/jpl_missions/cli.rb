@@ -32,9 +32,19 @@ class JPLMissions::CLI
   end
 
   def type_menu
+    puts (<<-DOC)
+    What type of mission would you like to browse?
+      1. Spacecraft
+      2. Rovers/Landers
+      3. Instruments
+      4. Airborne/Ground
+      5. Technology Demonstration
+      Enter 'exit' to return to the main menu
+    DOC
   end
 
   def target_menu
+
   end
 
   def status_menu
