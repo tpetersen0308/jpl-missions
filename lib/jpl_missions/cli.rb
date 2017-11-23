@@ -31,6 +31,17 @@ class JPLMissions::CLI
     DOC
   end
 
+  def display_menu_choice(choice)
+    case choice
+    when '1'
+      Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 'type').each.with_index do |el, index|
+        next if index == 0
+        puts "#{index}. #{el}"
+      end
+    end
+  end
+
+
   def type_menu
     puts (<<-DOC)
     What type of mission would you like to browse?
