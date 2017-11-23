@@ -21,6 +21,17 @@ class JPLMissions::CLI
     end
   end
 
+  def display_menu_choice(input)
+    case input
+    when '1'
+      status_menu
+    when '2'
+      target_menu
+    when '3'
+      type_menu
+    end
+  end
+
   def main_menu
     puts (<<-DOC)
     How would you like to browse missions?
@@ -29,7 +40,6 @@ class JPLMissions::CLI
       3. By Type
       Enter 'exit' to quit
     DOC
-    binding.pry
   end
 
   def type_menu
