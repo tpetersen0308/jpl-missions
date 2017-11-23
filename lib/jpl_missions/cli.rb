@@ -6,13 +6,7 @@ class JPLMissions::CLI
   end
 
   def start
-    puts (<<-DOC)
-    What kind of missions would you like to browse?
-      1. Current Missions
-      2. Past Missions
-      3. Future Missions
-      Enter 'exit' to quit
-    DOC
+    main_menu
     input = gets.chomp
     case input
     when /1|2|3/
@@ -27,6 +21,16 @@ class JPLMissions::CLI
       puts "Please choose from the available options."
       self.start
     end
+  end
+
+  def main_menu
+    puts (<<-DOC)
+    What kind of missions would you like to browse?
+      1. Current Missions
+      2. Past Missions
+      3. Future Missions
+      Enter 'exit' to quit
+    DOC
   end
 
   def list_missions(option)
