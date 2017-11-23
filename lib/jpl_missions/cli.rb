@@ -43,23 +43,21 @@ class JPLMissions::CLI
   end
 
   def type_menu
-    targets = JPLMissions::Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 2)
-    targets.each.with_index do |target, index|
-      puts "#{index}. #{target}"
-    end
+    print_menu('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 2)
   end
 
   def target_menu
-    targets = JPLMissions::Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 1)
-    targets.each.with_index do |target, index|
-      puts "#{index}. #{target}"
-    end
+    print_menu('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 1)
   end
 
   def status_menu
-    targets = JPLMissions::Scraper.scrape_list_items('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 0)
-    targets.each.with_index do |target, index|
-      puts "#{index}. #{target}"
+    print_menu('https://www.jpl.nasa.gov/missions/?search=&type=&missions_target=&mission_type=&launch_date=#submit', 0)
+  end
+
+  def print_menu(url, index)
+    menu_items = JPLMissions::Scraper.scrape_list_items(url, index)
+    menu_items.each.with_index do |item, index|
+      puts "#{index + 1}. #{item}"
     end
   end
 
