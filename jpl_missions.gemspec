@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{NASA JPL Missions}
   spec.description   = %q{This Ruby Gem provides a command line interface to browse current, past, and future
   missions of NASA's Jet Propulsion Laboratory in Pasadena, CA.}
-  spec.homepage      = "https://github.com/tpetersen0308/jpl-missions"
+  spec.homepage      = "https://rubygems.org/gems/jpl_missions"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
