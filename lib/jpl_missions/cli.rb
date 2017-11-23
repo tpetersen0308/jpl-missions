@@ -2,10 +2,10 @@ class JPLMissions::CLI
 
   def call
     puts "Welcome to NASA JPL Missions!"
-    self.main_menu
+    self.start
   end
 
-  def main_menu
+  def start
     puts (<<-DOC)
     What kind of missions would you like to browse?
       1. Current Missions
@@ -25,7 +25,7 @@ class JPLMissions::CLI
     else
       puts "I'm sorry, that's not an option."
       puts "Please choose from the available options."
-      self.main_menu
+      self.start
     end
   end
 
@@ -62,7 +62,7 @@ class JPLMissions::CLI
       display_mission_details(input)
       list_nav
     elsif input == "exit"
-      main_menu
+      start
     else puts "Please select from the available options"
       list_nav
     end
