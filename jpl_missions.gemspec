@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Travis Petersen'"]
   spec.email         = ["'travis.e.petersen@gmail.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This Ruby Gem provides a command line interface to browse current, past, and future
+  missions of NASA's Jet Propulsion Laboratory in Pasadena, CA.}
+  spec.homepage      = "https://github.com/tpetersen0308/jpl-missions"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
