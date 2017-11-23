@@ -23,11 +23,10 @@ class JPLMissions::CLI
 
   def main_menu
     puts (<<-DOC)
-    What kind of missions would you like to browse?
-      1. Current Missions
-      2. Past Missions
-      3. Future Missions
-      4. Proposed Missions
+    How would you like to browse missions?
+      1. By Status
+      2. By Target
+      3. By Type
       Enter 'exit' to quit
     DOC
   end
@@ -39,6 +38,14 @@ class JPLMissions::CLI
   end
 
   def status_menu
+    puts (<<-DOC)
+    What kind of missions would you like to browse?
+      1. Current Missions
+      2. Past Missions
+      3. Future Missions
+      4. Proposed Missions
+      Enter 'exit' to quit
+    DOC
   end
 
   def exit_cli
