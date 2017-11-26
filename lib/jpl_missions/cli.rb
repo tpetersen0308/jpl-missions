@@ -70,7 +70,7 @@ class JPLMissions::CLI
     puts ">> To return to the main menu, enter 'exit.'"
     puts ""
     input = gets.chomp
-    if input.between?('1', JPLMissions::Mission.all.size.to_s)
+    if input.to_i.between?(1, JPLMissions::Mission.all.size)
       display_mission_details(input)
       list_nav
     elsif input == "exit"
