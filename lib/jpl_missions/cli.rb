@@ -41,13 +41,13 @@ class JPLMissions::CLI
   def list_missions(option)
     case option
     when '1'
-      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=#submit')
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=current&missions_target=&mission_type=&launch_date=ascending#submit')
       list_nav
     when '2'
-      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=#submit')
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=past&missions_target=&mission_type=&launch_date=ascending#submit')
       list_nav
     when '3'
-      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=#submit')
+      list_missions_from_url('https://www.jpl.nasa.gov/missions/?search=&type=future&missions_target=&mission_type=&launch_date=ascending#submit')
       list_nav
     when '4'
       list_missions_from_url('https://www.jpl.nasa.gov/missions/?type=proposed')
