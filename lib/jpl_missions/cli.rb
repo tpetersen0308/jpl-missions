@@ -57,8 +57,9 @@ class JPLMissions::CLI
 
   def list_missions_from_url(url)
     JPLMissions::Mission.clear_all
-    missions_array = JPLMissions::Scraper.scrape_missions_from_url(url)
-    JPLMissions::Mission.create_missions_from_array(missions_array)
+    #missions_array = JPLMissions::Scraper.scrape_missions_from_url(url)
+    #JPLMissions::Mission.create_missions_from_array(missions_array)
+    JPLMissions::Scraper.create_missions_from_url(url)
     JPLMissions::Mission.all.each.with_index do |mission, index|
       puts "#{index + 1}: #{mission.title}"
     end

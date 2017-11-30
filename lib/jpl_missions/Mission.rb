@@ -2,17 +2,11 @@ class JPLMissions::Mission
   attr_accessor :title, :launch_date, :description, :details
   @@all = []
 
-  def initialize(title)
+  def initialize(title, launch_date, description)
     self.title = title
+    self.launch_date = launch_date
+    self.description = description
     save
-  end
-
-  def self.create_missions_from_array(array)
-    array.each do |mission_hash|
-      new_mission = self.new(mission_hash[:title])
-      new_mission.launch_date = mission_hash[:launch_date]
-      new_mission.description = mission_hash[:description]
-    end
   end
 
   def self.find_from_user_input(input)
